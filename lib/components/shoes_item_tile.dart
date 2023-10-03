@@ -5,13 +5,15 @@ class ShoesItemTile extends StatelessWidget {
   final shoesPrice;
   final imagePath;
   final colour;
+  void Function()? onPressed;
 
-  const ShoesItemTile({
+   ShoesItemTile({
     super.key,
     required this.shoesName,
     required this.shoesPrice,
     required this.imagePath,
     required this.colour,
+    required this.onPressed,
   });
 
   @override
@@ -33,7 +35,7 @@ class ShoesItemTile extends StatelessWidget {
               style:const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: onPressed,
               color: Colors.white,
               child: Text(
                 "\$" + shoesPrice,

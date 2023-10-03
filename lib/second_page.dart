@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nike_app/cart_page.dart';
 import 'package:nike_app/components/shoes_item_tile.dart';
 import 'package:nike_app/model/cart_model.dart';
 import 'package:provider/provider.dart';
@@ -16,9 +17,11 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: (){},
+        floatingActionButton: FloatingActionButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context){
+          return CartPage();
+        })),
         child: Icon(Icons.shopping_bag),
-        backgroundColor: Color(0xff03045E),
+        backgroundColor: Colors.black,
         ),
         backgroundColor: Colors.white,
         body: Column(
@@ -29,7 +32,7 @@ class _SecondPageState extends State<SecondPage> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: Text(
-                "Find The Best Available SoleMate For You",
+                "Find The Best Available SoleMate For You :)",
                 style: TextStyle(
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.bold,
@@ -63,6 +66,9 @@ class _SecondPageState extends State<SecondPage> {
                       shoesPrice: value.shopItems[index][1],
                       imagePath: value.shopItems[index][2],
                       colour: value.shopItems[index][3],
+                      onPressed: (){
+                        // Provider.of<CartModel>(context, listen: )
+                      },
                     );
                   }),
             ))

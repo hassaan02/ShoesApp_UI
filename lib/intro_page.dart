@@ -17,18 +17,24 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset("lib/images/intro pic.png"),
-            ),
+            Image.asset("lib/images/intro pic.png"),
             const Text(
-              "Your Journey Begins!",
+              "YOUR JOURNEY BEGINS!",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 40),
             ),
             const SizedBox(
-              height: 60,
+              height: 30,
             ),
+            const Text(
+              "Let's find your perfect pair! Tap 'Next' to explore our amazing collection.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+                fontSize: 20,
+              ),
+            ),
+            const Spacer(),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xff0077b6)),
@@ -39,8 +45,8 @@ class _HomePageState extends State<HomePage> {
                         builder: (context) => SecondPage(),
                       ));
                 },
-                child: Text(
-                  "Get Started",
+                child: const Text(
+                  "NEXT",
                   style: TextStyle(fontSize: 20),
                 )),
             const Spacer(),

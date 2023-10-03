@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CartModel extends ChangeNotifier {
+  // List of items on sale
   final List _shopItems = [
     ["Nike Air Force", "19.00", "lib/images/nike1.png", Colors.red],
     ["Nike Air Max", "25.00", "lib/images/nike2.png", Color(0xffef476f)],
@@ -11,6 +12,34 @@ class CartModel extends ChangeNotifier {
     [" Nike Blazer Mid", "21.50", "lib/images/nike7.png", Color(0xfff3722c)],
     ["Nike Waffle One", "18.00", "lib/images/nike8.png", Color(0xffd58936)],
   ];
+ // List of cart items
+  List _cartItems =[];
 
   get shopItems => _shopItems;
+
+  get cartItems => _cartItems;
+
+ // add items to cart
+ void addItemsToCart(int index){
+    _cartItems.add(_shopItems[index]);
+    notifyListeners();
+ }
+
+ // remove items from cart
+ void removeItemsFromCart(int index) {
+  _cartItems.removeAt(_shopItems[index]);
+  notifyListeners();
+}
+
+
+
+ // calculate total amount
+ String calculateTotal(){
+  double totalPrice = 0;
+  for (var i = 0; i < _cartItems.length; i++) {
+    totalPrice += double.parse(_cartItems[i][1]);
+  }
+  return totalPrice.toStringAsFixed(2);
+ }
+
 }
