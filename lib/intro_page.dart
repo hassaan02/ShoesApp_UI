@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(fontSize: 40),
             ),
             const SizedBox(
-              height: 40,
+              height: 60,
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(

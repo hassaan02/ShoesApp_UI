@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nike_app/intro_page.dart';
+import 'package:nike_app/model/cart_model.dart';
+import 'package:provider/provider.dart';
 
 void main(){
   runApp(MyApp());
@@ -10,8 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  ChangeNotifierProvider(create: (context) => CartModel(),
+    child:const MaterialApp(
       home: HomePage(),
+    ),
+    
     );
   }
 }
