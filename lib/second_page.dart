@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:nike_app/cart_page.dart';
 import 'package:nike_app/components/shoes_item_tile.dart';
 import 'package:nike_app/model/cart_model.dart';
@@ -17,11 +16,13 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context){
-          return CartPage();
-        })),
-        child: Icon(Icons.shopping_bag),
-        backgroundColor: Colors.black,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () =>
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return CartPage();
+          })),
+          child: Icon(Icons.shopping_bag),
+          backgroundColor: Colors.black,
         ),
         backgroundColor: Colors.white,
         body: Column(
@@ -55,19 +56,19 @@ class _SecondPageState extends State<SecondPage> {
             Expanded(
                 child: Consumer<CartModel>(
               builder: (context, value, child) => GridView.builder(
-                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1/1.3,
-                      crossAxisCount: 2),
-                      itemCount: value.shopItems.length,
-                      padding: EdgeInsets.all(10),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 1 / 1.3, crossAxisCount: 2),
+                  itemCount: value.shopItems.length,
+                  padding: const EdgeInsets.all(10),
                   itemBuilder: (context, index) {
                     return ShoesItemTile(
                       shoesName: value.shopItems[index][0],
                       shoesPrice: value.shopItems[index][1],
                       imagePath: value.shopItems[index][2],
                       colour: value.shopItems[index][3],
-                      onPressed: (){
-                        // Provider.of<CartModel>(context, listen: )
+                      onPressed: () {
+                        Provider.of<CartModel>(context, listen: false)
+                            .addItemsToCart(index);
                       },
                     );
                   }),

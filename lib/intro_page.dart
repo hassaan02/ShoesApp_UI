@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:nike_app/second_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +20,7 @@ class _HomePageState extends State<HomePage> {
             const Text(
               "YOUR JOURNEY BEGINS!",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 40),
+              style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 30,
@@ -30,19 +29,23 @@ class _HomePageState extends State<HomePage> {
               "Let's find your perfect pair! Tap 'Next' to explore our amazing collection.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontStyle: FontStyle.italic,
-                fontSize: 20,
-              ),
+                  fontStyle: FontStyle.italic,
+                  fontSize: 23,
+                  color: Colors.black),
             ),
             const Spacer(),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff0077b6)),
+                    elevation: 0,
+                    minimumSize: const Size(150, 50),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    backgroundColor: const Color(0xff0077b6)),
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SecondPage(),
+                        builder: (context) => const SecondPage(),
                       ));
                 },
                 child: const Text(

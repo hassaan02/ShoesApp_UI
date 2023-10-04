@@ -3,7 +3,7 @@ import 'package:nike_app/intro_page.dart';
 import 'package:nike_app/model/cart_model.dart';
 import 'package:provider/provider.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ChangeNotifierProvider(create: (context) => CartModel(),
-    child:const MaterialApp(
-      home: HomePage(),
-    ),
-    
+    return ChangeNotifierProvider(
+      create: (context) => CartModel(),
+      child: const MaterialApp(
+        home: HomePage(),
+      ),
     );
   }
 }

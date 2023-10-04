@@ -15,14 +15,25 @@ class _CartPageState extends State<CartPage> {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            title: Text("My Cart"),
-            centerTitle: true,
-            backgroundColor: Color(0xff00b4d8),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            iconTheme: IconThemeData(color: Colors.black),
           ),
           body: Consumer<CartModel>(
             builder: (context, value, child) {
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Text(
+                      "My Cart",
+                      style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 36),
+                    ),
+                  ),
                   Expanded(
                     child: ListView.builder(
                         itemCount: value.cartItems.length,
@@ -32,7 +43,7 @@ class _CartPageState extends State<CartPage> {
                             padding: const EdgeInsets.all(12.0),
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Color(0xffade8f4),
+                                color: const Color.fromARGB(255, 225, 225, 225),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Container(
@@ -55,6 +66,61 @@ class _CartPageState extends State<CartPage> {
                             ),
                           );
                         }),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(36.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 88, 88, 88),
+                      ),
+                      padding: EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Total Price",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                '\$' + value.calculateTotal(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            ],
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.white),
+                                borderRadius: BorderRadius.circular(12)),
+                            padding: EdgeInsets.all(12),
+                            child: const Row(
+                              children: [
+                                Text(
+                                  "Pay Now",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 16,
+                                  color: Colors.white,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   )
                 ],
               );

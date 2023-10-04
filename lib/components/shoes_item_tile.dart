@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ShoesItemTile extends StatelessWidget {
-  final  shoesName;
+  final shoesName;
   final shoesPrice;
   final imagePath;
   final colour;
   void Function()? onPressed;
 
-   ShoesItemTile({
+  ShoesItemTile({
     super.key,
     required this.shoesName,
     required this.shoesPrice,
@@ -32,7 +33,7 @@ class ShoesItemTile extends StatelessWidget {
             ),
             Text(
               shoesName,
-              style:const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
             MaterialButton(
               onPressed: onPressed,
