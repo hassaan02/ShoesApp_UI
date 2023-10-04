@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(12)),
                     backgroundColor: const Color(0xff0077b6)),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const SecondPage(),
